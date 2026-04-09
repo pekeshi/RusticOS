@@ -1,0 +1,5 @@
+# Generated
+out/
+build/
+logs/
+logs/qemu.log
