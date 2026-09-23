@@ -38,7 +38,7 @@ typedef signed long long    int64_t;   // 64-bit signed integer
 // ============================================================================
 // Standard Types
 // ============================================================================
-typedef unsigned long       size_t;    // Size type (used for object sizes and array indices)
+typedef unsigned int        size_t;    // 32-bit size type used by the kernel ABI
 
 // Note: bool, true, and false are built-in C++ types/constants
 // They are available in C++ without needing to define them here

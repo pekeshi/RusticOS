@@ -5,11 +5,11 @@
 # Tools
 NASM := nasm
 DD := dd
-QEMU := qemu-system-x86_64
-CC := i686-elf-gcc
-CXX := i686-elf-g++
-LD := i686-elf-ld
-OBJCOPY := i686-elf-objcopy
+QEMU := /mnt/c/msys64/mingw64/bin/qemu-system-x86_64.exe
+CC := i686-linux-gnu-gcc
+CXX := i686-linux-gnu-g++
+LD := i686-linux-gnu-ld
+OBJCOPY := i686-linux-gnu-objcopy
 
 # Directories
 BOOT_DIR := boot
@@ -157,7 +157,8 @@ image: $(DISK_IMG)
 # Run in QEMU with VNC display
 run: $(DISK_IMG)
 	@echo "Running QEMU in its own window..."
-	@pkill -9 qemu; sleep 1; $(QEMU) -drive file=$<,format=raw,if=ide,index=0 -boot c -m 512M -vga std -serial stdio -device isa-debug-exit,iobase=0xf4,iosize=0x04 || true
+	@pkill -9 qemu 2>/dev/null || true
+	@$(QEMU) -drive file=$<,format=raw,if=ide,index=0 -boot c -m 512M -vga std -display gtk -serial null -device isa-debug-exit,iobase=0xf4,iosize=0x04
 
 # Run in QEMU with debugging (no reboot on halt)
 run-debug: $(DISK_IMG)

@@ -484,7 +484,7 @@ void init_pit() {
  * 
  * @param frequency Desired frequency in Hz (must be between 19 and 1193182)
  */
-void set_pit_frequency(uint16_t frequency) {
+void set_pit_frequency(uint32_t frequency) {
     // Clamp frequency to valid range
     if (frequency < 19) {
         frequency = 19;  // Minimum frequency

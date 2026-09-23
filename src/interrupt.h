@@ -116,7 +116,7 @@ void disable_irq(uint8_t irq);   // Disable a specific IRQ
 
 // PIT (Programmable Interval Timer) functions
 void init_pit();                          // Initialize PIT with default frequency
-void set_pit_frequency(uint16_t frequency); // Set PIT frequency in Hz
+void set_pit_frequency(uint32_t frequency); // Set PIT frequency in Hz
 
 // IRQ handler functions (called from assembly ISR stubs)
 extern "C" void irq_handler(uint8_t irq);
